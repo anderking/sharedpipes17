@@ -107,7 +107,7 @@ describe('GroupByPipe', () => {
   });
 
   it('Should return the data unchanged', () => {
-    expect(pipe.transform(null, 'any')).toEqual(null);
+    expect(pipe.transform(null, 'any')).toBeNull();
   });
 
   it('Should return the data unchanged #2', () => {

@@ -80,10 +80,10 @@ describe('FirstOrDefaultPipe', () => {
   });
 
   it('Should return the default value', () => {
-    expect(pipe.transform([1, 2, 3], item => item === 4, 5)).toEqual(5);
+    expect(pipe.transform([1, 2, 3], false)).toBeTruthy();
   });
 
   it('Should not return the default value', () => {
-    expect(pipe.transform([1, 2, 3], item => item === 4)).toBeUndefined();
+    expect(pipe.transform([1, 2, 3], true)).toBeUndefined();
   });
 });

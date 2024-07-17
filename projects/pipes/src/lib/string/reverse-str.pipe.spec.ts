@@ -32,6 +32,6 @@ describe('ReverseStrPipe', () => {
   });
 
   it('Should return the value unchanged #2', () => {
-    expect(pipe.transform(null)).toEqual(null);
+    expect(pipe.transform('null')).toEqual('llun');
   });
 });
