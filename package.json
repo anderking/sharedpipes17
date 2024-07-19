@@ -1,6 +1,6 @@
 {
   "name": "shared-pipes",
-  "version": "17.3.0",
+  "version": "17.3.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +15,7 @@
     "copy-files": "npm run copy-readme",
     "npm_pack": "cd dist/pipes && npm pack",
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
-    "publish_pack": "npm publish ./dist/pipes/shared-pipes-17.3.0.tgz",
+    "publish_pack": "npm publish ./dist/pipes/shared-pipes-17.3.1.tgz",
     "refreshVSToken": "vsts-npm-auth -config .npmrc -f"
   },
   "private": true,
