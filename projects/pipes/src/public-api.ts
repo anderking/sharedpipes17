@@ -109,6 +109,7 @@ export * from './lib/string/with.pipe';
 export * from './lib/string/reverse-str.pipe';
 export * from './lib/string/error-message.pipe';
 export * from './lib/string/get-display-name.pipe';
+export * from './lib/string/translate.pipe';
 
 export * from './lib/observable/smart-async.pipe';
 
