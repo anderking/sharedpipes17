@@ -28,7 +28,7 @@ describe('TruncatePipe', () => {
   });
 
   it('Should return the value unchanged', () => {
-    expect(pipe.transform(1, null)).toEqual(1);
+    expect(pipe.transform(1, 0)).toEqual(1);
   });
 
   it('Should return the input', () => {

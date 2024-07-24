@@ -9,28 +9,33 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
-      jasmine: {
-        // you can add configuration options for Jasmine here
-        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
-        // for example, you can disable the random execution with `random: false`
-        // or set a specific seed with `seed: 4321`
-      },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false
     },
-    jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
+    coverageIstanbulReporter: {
+      dir: require('path').join(__dirname, './coverage'),
+      reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
+      fixWebpackSourcePaths: true,
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/pipes'),
+      dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
         { type: 'html' },
-        { type: 'text-summary' }
-      ]
+        { type: 'text-summary' },
+        { type: 'cobertura' },
+        { type: 'lcovonly' }
+      ],
+      thresholds: {
+        statements: 20,
+        lines: 20,
+        branches: 1,
+        functions: 15
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -38,6 +43,12 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--headless', '--disable-gpu', '--remote-debugging-port=9222']
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });

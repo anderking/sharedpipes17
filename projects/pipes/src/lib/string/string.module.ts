@@ -26,6 +26,7 @@ import { WithPipeModule } from './with.pipe';
 import { ReverseStrPipeModule } from './reverse-str.pipe';
 import { ErrorMessagePipeModule } from './error-message.pipe';
 import { GetDisplayNamePipeModule } from './get-display-name.pipe';
+import { TranslatePipeModule } from './translate.pipe';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { GetDisplayNamePipeModule } from './get-display-name.pipe';
     WithPipeModule,
     ReverseStrPipeModule,
     ErrorMessagePipeModule,
-    GetDisplayNamePipeModule
+    GetDisplayNamePipeModule,
+    TranslatePipeModule
   ]
 })
 export class StringPipesModule {}

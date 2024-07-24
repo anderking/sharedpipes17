@@ -8,13 +8,13 @@ describe('TakeWhilePipe', () => {
   });
 
   it('Should return while the condition is met', () => {
-    const predicate = item => item < 4;
+    const predicate = (item: any) => item < 4;
 
     expect(pipe.transform([1, 2, 3, 4, 1, 5], predicate)).toEqual([1, 2, 3]);
   });
 
   it('Should return while the condition is met #2', () => {
-    const predicate = item => item < 6;
+    const predicate = (item: any) => item < 6;
 
     expect(pipe.transform([1, 2, 3, 4, 5], predicate)).toEqual([1, 2, 3, 4, 5]);
   });
@@ -32,6 +32,6 @@ describe('TakeWhilePipe', () => {
   });
 
   it('Should return the value unchanged', () => {
-    expect(pipe.transform('a', null)).toEqual('a');
+    expect(pipe.transform('a', () => { return false })).toEqual('a');
   });
 });
